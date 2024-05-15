@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import coil.load
+import coil.transform.RoundedCornersTransformation
 import com.sector.travelmanager.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment() {
@@ -30,7 +32,7 @@ class DetailFragment : Fragment() {
 
         setData()
 
-        binding.toolbar.setNavigationOnClickListener {
+        binding.ivBack.setOnClickListener {
             findNavController().popBackStack()
         }
     }
@@ -41,6 +43,10 @@ class DetailFragment : Fragment() {
     }
 
     private fun setData() {
-        binding.toolbar.title = args.attraction.name
+        binding.ivAttraction.load(args.attraction.image) {
+            transformations(
+                RoundedCornersTransformation(bottomLeft = 60f, bottomRight = 60f)
+            )
+        }
     }
 }
