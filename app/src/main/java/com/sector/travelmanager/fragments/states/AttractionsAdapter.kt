@@ -1,20 +1,17 @@
 package com.sector.travelmanager.fragments.states
 
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.google.firebase.storage.FirebaseStorage
 import com.sector.travelmanager.databinding.ItemStateBinding
 import com.sector.travelmanager.entity.Attraction
 
-class StatesAdapter(
+class AttractionsAdapter(
     private val onItemClick: (Attraction) -> Unit
-): ListAdapter<Attraction, StatesAdapter.MyViewHolder>(ItemComparator()) {
+): ListAdapter<Attraction, AttractionsAdapter.MyViewHolder>(ItemComparator()) {
 
     class MyViewHolder(
         private val binding: ItemStateBinding

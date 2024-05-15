@@ -6,23 +6,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.sector.travelmanager.databinding.FragmentListBinding
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.FirebaseFirestore
+import com.sector.travelmanager.databinding.FragmentAttractionsBinding
 import com.sector.travelmanager.entity.Attraction
 
-class StatesFragment : Fragment() {
+class AttractionsFragment : Fragment() {
 
-    private var _binding: FragmentListBinding? = null
+    private var _binding: FragmentAttractionsBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var adapter: StatesAdapter
+    private lateinit var adapter: AttractionsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentListBinding.inflate(inflater, container, false)
+        _binding = FragmentAttractionsBinding.inflate(inflater, container, false)
 
         return binding.root
     }
@@ -35,7 +35,7 @@ class StatesFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        adapter = StatesAdapter(
+        adapter = AttractionsAdapter(
             onItemClick = { attraction ->
                 onOpenAttraction(attraction)
             }
@@ -62,7 +62,7 @@ class StatesFragment : Fragment() {
 
     private fun onOpenAttraction(attraction: Attraction) {
         findNavController().navigate(
-            StatesFragmentDirections.actionStatesFragmentToDetailFragment(attraction)
+            AttractionsFragmentDirections.actionAttractionsFragmentToDetailFragment(attraction)
         )
     }
 

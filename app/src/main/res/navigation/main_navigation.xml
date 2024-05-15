@@ -8,11 +8,11 @@
 
     <fragment
         android:id="@+id/statesFragment"
-        android:name="com.sector.travelmanager.fragments.states.StatesFragment"
+        android:name="com.sector.travelmanager.fragments.states.AttractionsFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" >
+        tools:layout="@layout/fragment_attractions" >
         <action
-            android:id="@+id/action_statesFragment_to_detailFragment"
+            android:id="@+id/action_attractionsFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
     <fragment
