@@ -41,6 +41,6 @@ class DetailFragment : Fragment() {
     }
 
     private fun setData() {
-
+        binding.toolbar.title = args.attraction.name
     }
 }

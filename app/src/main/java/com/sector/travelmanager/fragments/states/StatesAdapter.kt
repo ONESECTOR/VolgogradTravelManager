@@ -1,16 +1,16 @@
 package com.sector.travelmanager.fragments.states
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.google.firebase.storage.FirebaseStorage
 import com.sector.travelmanager.databinding.ItemStateBinding
 import com.sector.travelmanager.entity.Attraction
-import com.squareup.picasso.Callback
-import com.squareup.picasso.Picasso
 
 class StatesAdapter(
     private val onItemClick: (Attraction) -> Unit
@@ -19,23 +19,14 @@ class StatesAdapter(
     class MyViewHolder(
         private val binding: ItemStateBinding
     ): RecyclerView.ViewHolder(binding.root) {
+
         fun bind(state: Attraction) = with(binding) {
+            ivAttraction.load(state.image)
             tvName.text = state.name
-            Picasso.with(itemView.context)
-                .load(state.image)
-                .fit()
-                .into(ivAttraction, object : Callback {
-                    override fun onSuccess() {
-                        progressBar.visibility = View.GONE
-                    }
-
-                    override fun onError() {
-
-                    }
-                })
         }
 
         companion object {
+
             fun from(parent: ViewGroup): MyViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ItemStateBinding.inflate(layoutInflater, parent, false)
@@ -45,6 +36,7 @@ class StatesAdapter(
     }
 
     private class ItemComparator: DiffUtil.ItemCallback<Attraction>() {
+
         override fun areItemsTheSame(oldItem: Attraction, newItem: Attraction): Boolean {
             return oldItem == newItem
         }
@@ -64,8 +56,6 @@ class StatesAdapter(
 
             itemView.rootView.setOnClickListener {
                 onItemClick.invoke(getItem(position))
-                /*val action = StatesFragmentDirections.actionListFragmentToAttractionsFragment(getItem(position))
-                itemView.findNavController().navigate(action)*/
             }
         }
     }

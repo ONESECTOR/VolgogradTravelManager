@@ -24,4 +24,9 @@
             android:name="attraction"
             app:argType="com.sector.travelmanager.entity.Attraction" />
     </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.sector.travelmanager.fragments.map.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
 </navigation>

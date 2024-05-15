@@ -9,8 +9,9 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
+        app:navigationIcon="@drawable/ic_arrow_back"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        tools:title="Родина матт" />
+        tools:title="Родина мать" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
