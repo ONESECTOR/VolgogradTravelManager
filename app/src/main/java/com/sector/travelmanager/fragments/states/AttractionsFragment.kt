@@ -32,6 +32,12 @@ class AttractionsFragment : Fragment() {
 
         setupRecyclerView()
         getAttractions()
+
+        binding.btnMap.setOnClickListener {
+            findNavController().navigate(
+                AttractionsFragmentDirections.actionStatesFragmentToMapFragment()
+            )
+        }
     }
 
     private fun setupRecyclerView() {
