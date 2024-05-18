@@ -26,6 +26,9 @@
         <argument
             android:name="attraction"
             app:argType="com.sector.travelmanager.entity.Attraction" />
+        <action
+            android:id="@+id/action_detailFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapFragment"

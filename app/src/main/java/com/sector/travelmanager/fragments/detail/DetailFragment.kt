@@ -24,6 +24,12 @@ class DetailFragment : Fragment() {
     ): View {
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
 
+        binding.tvName.text = args.attraction.name
+        binding.tvDescription.text = args.attraction.description
+        binding.tvRating.text = args.attraction.rating.toString()
+        binding.tvPlace.text = "${args.attraction.city}, ${args.attraction.area}"
+        binding.tvDistance.text = "4км"
+
         return binding.root
     }
 
@@ -34,6 +40,11 @@ class DetailFragment : Fragment() {
 
         binding.ivBack.setOnClickListener {
             findNavController().popBackStack()
+        }
+        binding.btnOpenMap.setOnClickListener {
+            findNavController().navigate(
+                DetailFragmentDirections.actionDetailFragmentToMapFragment()
+            )
         }
     }
 
