@@ -34,5 +34,14 @@
         android:id="@+id/mapFragment"
         android:name="com.sector.travelmanager.fragments.map.MapFragment"
         android:label="fragment_map"
-        tools:layout="@layout/fragment_map" />
+        tools:layout="@layout/fragment_map" >
+        <argument
+            android:name="attraction"
+            app:argType="com.sector.travelmanager.entity.Attraction"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_mapFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 </navigation>

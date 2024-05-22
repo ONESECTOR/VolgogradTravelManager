@@ -1,4 +1,5 @@
 package com.sector.travelmanager.entity
+
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
@@ -6,8 +7,8 @@ import kotlinx.parcelize.Parcelize
 data class Attraction(
     val name: String? = null,
     val description: String? = null,
-    val lat: Int? = null,
-    val lon: Int? = null,
+    val lat: Double? = null,
+    val lon: Double? = null,
     val image: String? = null,
     val city: String? = null,
     val area: String? = null,
