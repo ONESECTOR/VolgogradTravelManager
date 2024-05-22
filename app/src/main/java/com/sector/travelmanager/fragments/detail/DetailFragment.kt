@@ -27,6 +27,7 @@ class DetailFragment : Fragment() {
 
     private var fusedLocationClient: FusedLocationProviderClient? = null
 
+    @SuppressLint("MissingPermission")
     private val requestPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
             if (isGranted) {
